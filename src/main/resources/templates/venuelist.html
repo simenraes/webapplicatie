@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li><a href="/home">Home</a></li>
+    <li><a href="/venuelist">venuelist</a></li>
+    <li><a href="/about">about</a></li>
+
+</ul>
+
+<p></p>
+<p><a th:href="@{http://localhost:8080/venuedetails/De%20Loods}">de loods</a></p>
+<p><a th:href="@{http://localhost:8080/venuedetails/zapoi}">zapoi</a></p>
+<p><a th:href="@{http://localhost:8080/venuedetails/Cuba%20Libre}">cuba libre</a></p>
+
+</body>
+</html>

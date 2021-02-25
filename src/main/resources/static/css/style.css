@@ -188,5 +188,10 @@ a.linkLook:hover {
     padding: 60px 0;
     text-align: center;
 }
+li{
+    float: left;
+    margin-right: 40px;
+
+}
 
 

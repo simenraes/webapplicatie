@@ -1,16 +1,21 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+    <title>Title</title>
 </head>
-<h1>elloooo</h1>
 <body>
-<p th:text="${mySpecialNumber}">mySpecialNumber</p>
-<a th:href="@{/about}">about</a>
-</body>
+<p th:text="${LocalDateTime}">LocalDateTime</p>
+<p th:text="|de datum van vandaag is ${LocalDateTime}|">LocalDateTime</p>
+<p th:text="|de uiterste datum van betaling is  ${LocalDateTime.plusDays(30)}|">LocalDateTime+30</p>
 
+
+
+
+
+
+</body>
 </html>
