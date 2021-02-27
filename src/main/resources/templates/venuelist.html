@@ -17,18 +17,32 @@
 </ul>
 
 <p></p>
+
+
 <div class="row1">
     <div class="row1content">
-        <h2 th:if="${venueName}" th:text="${venueName}">venuedetails</h2>
-        <div th:each="venueName: ${venueNames}">
+        <h2 th:if="${venues}" th:text="${venue}">venuedetails</h2>
+        <div th:each="venue: ${venues}">
             <a class="buttonLook mediumButton"
-               th:href="@{|/venuedetails/${venueNameStat.index}|}"
-               th:text="${venueName}">venue name</a>
+               th:href="@{|/venuedetails/${venueStat.index}|}"
+               th:text="${venue.getVenueName()}">venue</a>
 <!--            // hier nog is nakijken ofik alles gedaan heb kijk bundel 1 pg 28-->
 <!--            // pg 29 no venue chosen werkt niet correct-->
         </div>
     </div>
 </div>
+<!--<div class="row1">-->
+<!--    <div class="row1content">-->
+<!--        <h2 th:if="${venueName}" th:text="${venueName}">venuedetails</h2>-->
+<!--        <div th:each="venueName: ${venueNames}">-->
+<!--            <a class="buttonLook mediumButton"-->
+<!--               th:href="@{|/venuedetails/${venueNameStat.index}|}"-->
+<!--               th:text="${venueName}">venue name</a>-->
+<!--            &lt;!&ndash;            // hier nog is nakijken ofik alles gedaan heb kijk bundel 1 pg 28&ndash;&gt;-->
+<!--            &lt;!&ndash;            // pg 29 no venue chosen werkt niet correct&ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <!--<p><a th:href="@{http://localhost:8080/venuedetails/De%20Loods}">de loods</a></p>
 <p><a th:href="@{http://localhost:8080/venuedetails/zapoi}">zapoi</a></p>
 <p><a th:href="@{http://localhost:8080/venuedetails/Cuba%20Libre}">cuba libre</a></p>-->

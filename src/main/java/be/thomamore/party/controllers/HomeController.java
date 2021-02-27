@@ -1,5 +1,6 @@
 package be.thomamore.party.controllers;
 
+import be.thomamore.party.model.Venue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,12 @@ import java.util.Calendar;
 public class HomeController {
 
     private final String[] venueNames = {"De Loods", "De Club", "De Hangar", "Zapoi", "Kuub", "Cuba Libre"};
+    private final Venue v1 = new Venue("v1", "link1", 6, true, false, true, false, "brussel", 40);
+    private final Venue v2 = new Venue("v2", "link2", 6, true, false, true, false, "brussel", 40);
+    private final Venue v3 = new Venue("v3", "link3", 6, true, false, true, false, "brussel", 40);
+    private final Venue v4 = new Venue("v4", "link4", 6, true, false, true, false, "brussel", 40);
+
+    private final Venue[] venues ={v1,v2,v3,v4};
     private final LocalDate datum = LocalDate.now(); // controller moet eig stateless zijn dusmoet ditniet final zijn ?
     private final Calendar c1 = Calendar.getInstance();
 
@@ -51,6 +58,7 @@ public class HomeController {
         }
         return "venuedetails";
         //NOG EXCEPTION TOEVOEGEN ZIE BUNDEL P27
+        // ZIE BUNDEL 2 PG 4 NOG DOEN
     }
 
 
@@ -59,8 +67,15 @@ public class HomeController {
 
     @GetMapping("/venuelist")
     public String venueList(Model model) {
-        model.addAttribute("venueNames", venueNames);
-        return "venuelist";
+        model.addAttribute("venues", venues);
+       return "venuelist";
     }
+//    @GetMapping("/venuelist")
+//    public String venueList(Model model) {
+//        model.addAttribute("venueNames", venueNames);
+//        return "venuelist";
+//    }
+
+
 
 }

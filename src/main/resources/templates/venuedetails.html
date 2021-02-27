@@ -7,11 +7,23 @@
     <title>Title</title>
 </head>
 <body>
+
 <div class="row1">
-    <div class="row1content">
-        <h2><p th:text="${venueName}">venue</p> </h2>
+    <div class="row1content" th:if="${venueName}">
+        <h2 th:text="${venueName}">venuedetails</h2>
+
+        <div class="venueinfo"></div>
+
+        <div class="prevButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/venuedetails/${prevIndex}|}">&lt;</a>
+        </div>
+        <div class="nextButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/venuedetails/${nextIndex}|}">&gt;</a>
+        </div>
     </div>
-    <div class="buttons"><a href="/">home</a> </div>
+    <div class="row1content" th:unless="${venueName}">
+        <p>no venue was chosen</p>
+    </div>
 </div>
 <div th:replace="fragments/header :: header">Header</div>
 <div th:replace="fragments/footer :: footer">Footer</div>
