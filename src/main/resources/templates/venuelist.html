@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
-    <title>Title</title>
+    <title>venues</title>
 </head>
 <body>
+<div th:replace="fragments/header :: header">Header</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
 <ul>
     <li><a href="/home">Home</a></li>
     <li><a href="/venuelist">venuelist</a></li>
@@ -15,9 +17,20 @@
 </ul>
 
 <p></p>
-<p><a th:href="@{http://localhost:8080/venuedetails/De%20Loods}">de loods</a></p>
+<div class="row1">
+    <div class="row1content">
+        <h2 th:if="${venueName}" th:text="${venueName}">venuedetails</h2>
+        <div th:each="venueName: ${venueNames}">
+            <a class="buttonLook mediumButton"
+               th:href="@{|/venuedetails/${venueNameStat.index}|}"
+               th:text="${venueName}">venue name</a>
+        </div>
+    </div>
+</div>
+<!--<p><a th:href="@{http://localhost:8080/venuedetails/De%20Loods}">de loods</a></p>
 <p><a th:href="@{http://localhost:8080/venuedetails/zapoi}">zapoi</a></p>
-<p><a th:href="@{http://localhost:8080/venuedetails/Cuba%20Libre}">cuba libre</a></p>
-
+<p><a th:href="@{http://localhost:8080/venuedetails/Cuba%20Libre}">cuba libre</a></p>-->
+<div th:replace="fragments/header :: header">Header</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
 </body>
 </html>

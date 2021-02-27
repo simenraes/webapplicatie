@@ -4,13 +4,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>let's Party</title>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
 </head>
 <h1>elloooo</h1>
 <body>
 <p th:text="${mySpecialNumber}">mySpecialNumber</p>
 <a th:href="@{/about}">about</a>
+
+
+<div th:replace="fragments/header :: header">Header</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
 
 </body>
 
