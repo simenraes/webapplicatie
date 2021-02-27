@@ -11,7 +11,7 @@ import java.util.Calendar;
 
 @Controller
 public class HomeController {
-    private final int mySpecialNumber = 729;
+
     private final String[] venueNames = {"De Loods", "De Club", "De Hangar", "Zapoi", "Kuub", "Cuba Libre"};
     private final LocalDate datum = LocalDate.now(); // controller moet eig stateless zijn dusmoet ditniet final zijn ?
     private final Calendar c1 = Calendar.getInstance();
@@ -19,13 +19,13 @@ public class HomeController {
 
     @GetMapping({"/", "/home"})
     public String home(Model model) {
-        model.addAttribute("mySpecialNumber", mySpecialNumber);
+
         return "home";
     }
 
     @GetMapping("/about")
     public String about(Model model) {
-        model.addAttribute("mySpecialNumber", mySpecialNumber);
+
         return "about";
     }
 
@@ -40,18 +40,19 @@ public class HomeController {
         return "pay";
     }
 
-    @GetMapping({"/venuedetails", "/venuedetailsbyindex/{index}"})
+    @GetMapping({"/venuedetails", "/venuedetails/{index}"})
     public String venueDetails(Model model,
                                @PathVariable(required = false)  Integer index) {
         if (index!=null && index>=0 && index<venueNames.length ) {
             model.addAttribute("venueName", venueNames[index]);
             model.addAttribute("prevIndex", index>0 ? index-1 : venueNames.length-1);
             model.addAttribute("nextIndex", index<venueNames.length-1 ? index+1 : 0);
+            model.addAttribute("venueName", (venueNames!=null) ? venueNames : "--no venue chosen--");
         }
         return "venuedetails";
         //NOG EXCEPTION TOEVOEGEN ZIE BUNDEL P27
     }
-//model.addAttribute("venueName", (venueName!=null) ? venueName : "--no venue chosen--");
+
 
 
 
